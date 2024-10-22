@@ -36,7 +36,7 @@ async function refreshAccessToken(refreshToken) {
   const oauth2Client = new google.auth.OAuth2(
     process.env.CLIENT_ID,
     process.env.CLIENT_SECRET,
-    "http://localhost:3000/oauth2callback"
+    "https://phishield-mail.onrender.com/oauth2callback"
   );
   oauth2Client.setCredentials({ refresh_token: refreshToken });
   const { credentials } = await oauth2Client.refreshAccessToken();
@@ -49,7 +49,7 @@ app.get("/", (req, res) => {
     const oauth2Client = new google.auth.OAuth2(
       process.env.CLIENT_ID,
       process.env.CLIENT_SECRET,
-      "http://localhost:3000/oauth2callback"
+      "https://phishield-mail.onrender.com/oauth2callback"
     );
     // console.log("Hello");
     const scopes = ["https://www.googleapis.com/auth/gmail.readonly"];
@@ -71,7 +71,7 @@ app.get("/oauth2callback", async (req, res) => {
     const oauth2Client = new google.auth.OAuth2(
       process.env.CLIENT_ID,
       process.env.CLIENT_SECRET,
-      "http://localhost:3000/oauth2callback"
+      "https://phishield-mail.onrender.com/oauth2callback"
     );
     const { tokens } = await oauth2Client.getToken(req.query.code);
     // console.log("Printing tokens");
@@ -80,7 +80,7 @@ app.get("/oauth2callback", async (req, res) => {
     // res.header("access_token", `${tokens.access_token}`);
     // res.header("refresh_token", `${tokens.refresh_token}`);
     res.redirect(
-      `http://localhost:5173/?access_token=${tokens.access_token}&refresh_token=${tokens.refresh_token}`
+      `https://phishield-mail.vercel.app/?access_token=${tokens.access_token}&refresh_token=${tokens.refresh_token}`
     );
   } catch (err) {
     // console.log(err);
@@ -126,7 +126,7 @@ app.post("/list", async (req, res) => {
       // const res = await fetch(`http://localhost:3000/message/${mesg.id}`);
       // const data = await res.json();
 
-      return { ...mesg, link: `http://localhost:3000/message/${mesg.id}` };
+      return { ...mesg, link: `https://phishield-mail.onrender.com/message/${mesg.id}` };
     });
     // messageArray = await Merge(messageArray, ACCESS_TOKEN, REFRESH_TOKEN);
     // console.log(messageArray);
