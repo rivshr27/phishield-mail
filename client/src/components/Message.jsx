@@ -10,7 +10,7 @@ const Message = () => {
   useEffect(() => {
     const messageData = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/message/${id}`, {
+        const res = await fetch(`https://phishield-mail.onrender.com/message/${id}`, {
           body: JSON.stringify({
             ACCESS_TOKEN: localStorage.getItem("access_token"),
             REFRESH_TOKEN: localStorage.getItem("refresh_token"),

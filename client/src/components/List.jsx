@@ -19,7 +19,7 @@ function TodoList() {
       }
 
       try {
-        const res = await fetch("http://localhost:3000/list", {
+        const res = await fetch("https://phishield-mail.onrender.com/list", {
           body: JSON.stringify({
             ACCESS_TOKEN: localStorage.getItem("access_token"),
             REFRESH_TOKEN: localStorage.getItem("refresh_token"),
@@ -45,7 +45,7 @@ function TodoList() {
     setScanning(id);
 
     try {
-      const res = await fetch(`http://localhost:3000/message/${id}`, {
+      const res = await fetch(`https://phishield-mail.onrender.com/message/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ function TodoList() {
         }
       }
 
-      const finalRes = await fetch(`http://localhost:3000/scan`, {
+      const finalRes = await fetch(`https://phishield-mail.onrender.com/scan`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

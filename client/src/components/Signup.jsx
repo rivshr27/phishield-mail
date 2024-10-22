@@ -21,7 +21,7 @@ function SignUp() {
     e.preventDefault();
     setLoading(true); // Start loading when the button is clicked
     try {
-      const res = await fetch("http://localhost:3000/");
+      const res = await fetch("https://phishield-mail.onrender.com/");
       const data = await res.json();
       window.open(data.url, "_self");
       setIsSignedUp(true);
